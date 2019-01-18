@@ -1,0 +1,59 @@
+<br/>
+<div class="container">
+    <h1 class="text-center">Cadastro de Comidas Salgadas</h1>
+    <hr>
+    <form method="post" action="Request.php?class=ComidaSalgadaCtr&method=run">
+        <div class="form-row" >      
+            <input class="form-control" type="hidden" name="id" id="id" 
+                   value="<?= $this->model->getId() ?>">
+        </div>
+        <div class="form-row" >       
+            <div class="form-group col-md-6">
+                <label for="descricao">Descricao</label>
+                <input type="text" class="form-control"  name="descricao" id="descricao"  value="<?= $this->model->getDescricaoComida() ?>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="tipo">Tipo</label>
+                <input type="text" class="form-control" id="tipo" name="tipo"  value="<?= $this->model->getTipoComida() ?>">
+            </div>
+        </div>          
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">                  
+
+                    <button  class="btn btn-primary" type="submit" name="command" value="Salvar">
+                        Salvar
+                    </button>
+
+                    <button class="btn btn-danger" type="submit" name="command" value="Excluir">
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--
+<h1>Cadastro de Comida</h1>
+<hr>
+<form method="post" 
+   action="Request.php?class=ComidaSalgadaCtr&method=run">
+
+<input type="hidden" id="id" name="id" 
+    value="<?= $this->model->getId() ?>">
+
+<label for="descricao">Descrição:</label>
+<input type="text" name="descricao" id="descricao" required maxlenght="50" 
+    value="<?= $this->model->getDescricaoComida() ?>">
+<br>
+<label for="tipo">Tipo:</label>
+<input type="text" name="tipo" id="tipo" required maxlenght="50" 
+    value="<?= $this->model->getTipoComida() ?>">
+<br>
+
+<input type="submit" name="command" value="Novo">
+<input type="submit" name="command" value="Salvar">
+<input type="submit" name="command" value="Excluir">
+
+</form>
+-->

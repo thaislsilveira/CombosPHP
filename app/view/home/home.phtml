@@ -1,0 +1,83 @@
+<?php
+
+use core\Application;
+
+//..exibe a msg de erro
+if ($this->msgError) {
+    ?>
+    <p style="color:red"><?= $this->msgError; ?></p>
+    <?php
+}
+
+
+if ($this->activeUsuario == 'Visitante') {
+    ?>   
+    <p>Por favor, entre com seu e-mail e sua senha</p>
+
+    <form method="post" action="Request.php?class=UsuarioCtr&method=doLogin">
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+        </div>
+        <div class="forgot">
+            <p><a href="Request.php?class=UsuarioCtr&method=insertUpdate">Ainda não tem cadastro? Clique aqui!</a></p>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+    </div>
+
+    </div></div></div>
+
+    <?php
+} else {
+    //require_once 'header.phtml';
+    ?>
+    <section class="slider_section">
+        <ul id="main-slider" class="owl-carousel main_slider">
+            <li class="main_slide" style="background-image: url(core/img/comida.jpg);">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
+                                <h3 class="text-white ">Bem-Vindo ao</h3>
+                                <h1 class="text-white ">Combos</h1>
+                                <p class="text-white ">Aqui você pode montar seu combo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="main_slide" style="background-image: url(core/img/doces.jpg);">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
+                                 <h3 class="text-white ">Bem-Vindo ao</h3>
+                                <h1 class="text-white ">Combos</h1>
+                                <p class="text-white ">Combos com Doces, Salgados e Refrigerantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="main_slide" style="background-image: url(core/img/refrigerante.jpg);">
+                <div class="container">
+                    <div class="display-table">
+                        <div class="table-cell">
+                            <div class="slider_content align-center">
+                               <h3 class="text-white ">Bem-Vindo ao</h3>
+                                <h1 class="text-white">Combos</h1>
+                                <p class="text-white ">Tudo isso do conforto da sua casa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <?php
+}
+?>

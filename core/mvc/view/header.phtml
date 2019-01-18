@@ -1,0 +1,96 @@
+<?php
+
+//..configurar os uses
+use core\Application;
+use core\util\Session;
+
+//..se houver a sessão active user criada, então pega ela...
+$this->activeUsuario = Session::getSession('activeUsuario') ? Session::getSession('activeUsuario')->getNome() : 'Visitante';
+?>
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">      
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="core/vendor/css/owl.carousel.css">
+        <link rel="stylesheet" href="core/vendor/css/animate.min.css">
+        <link href="core/vendor/css/tabela.css" rel="stylesheet" type="text/css"> 
+        <link href="core/vendor/css/footer.css" rel="stylesheet" type="text/css">
+        <link href="core/vendor/css/style.css" rel="stylesheet" type="text/css"> 
+
+        <title>
+            <?= core\Application::APP_NAME ?>
+        </title>
+    </head>
+    <body>   
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img src="<?= core\Application::APP_ICON ?>" alt="">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav flex-row ml-md-auto d-md-flex">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
+                        </li>                       
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cadastros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="Request.php?class=BebidaCtr&method=showView">Bebidas</a>
+                                <a class="dropdown-item" href="Request.php?class=DoceCtr&method=showView">Doces</a>
+                                <a class="dropdown-item" href="Request.php?class=ComidaSalgadaCtr&method=showView">Comidas Salgadas</a>
+                                <a class="dropdown-item" href="Request.php?class=ComboCtr&method=showView">Combos</a>
+                                <a class="dropdown-item" href="Request.php?class=UsuarioCtr&method=showView">Usuários</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Consultas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="Request.php?class=BebidaCtr&method=showList">Bebidas</a>
+                                <a class="dropdown-item" href="Request.php?class=DoceCtr&method=showList">Doces</a>
+                                <a class="dropdown-item" href="Request.php?class=ComidaSalgadaCtr&method=showList">Comidas Salgadas</a>
+                                <a class="dropdown-item" href="Request.php?class=ComboCtr&method=showList">Combos</a>
+                                <a class="dropdown-item" href="Request.php?class=UsuarioCtr&method=showList">Usuários</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Relatórios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Bebidas</a>
+                                <a class="dropdown-item" href="#">Doces</a>
+                                <a class="dropdown-item" href="#">Comidas Salgadas</a>
+                                <a class="dropdown-item" href="#">Combos</a>
+                                <a class="dropdown-item" href="#">Usuários</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Usuário Ativo: </strong> <?= $this->activeUsuario; ?> </a>
+                            <?php
+                            if ($this->activeUsuario != "Visitante") {
+                                ?>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" <a href="Request.php?class=UsuarioCtr&method=doLogout">Sair</a>  
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>  
+

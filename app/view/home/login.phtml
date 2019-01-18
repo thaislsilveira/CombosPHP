@@ -1,0 +1,59 @@
+<?php
+
+//..configurar os uses
+use core\Application;
+use core\util\Session;
+
+//..se houver a sessão active user criada, então pega ela...
+$this->activeUsuario = Session::getSession('activeUsuario') ? Session::getSession('activeUsuario')->getNome() : 'Visitante';
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="core/vendor/css/login.css" rel="stylesheet" type="text/css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+        <title>
+            <?= core\Application::APP_NAME ?>
+        </title>
+    </head>
+    <body id="LoginForm">
+        <div class="container">            
+            <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">                     
+
+                    </div>
+                    <header>
+                        <img src="<?= core\Application::APP_ICON ?>" alt="">
+
+                        <hr>
+                    </header>
+                    <section class="content"> 
+                        <p>Por favor, entre com seu e-mail e sua senha</p>
+
+                        <form method="post" action="Request.php?class=UsuarioCtr&method=doLogin">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+                            </div>
+                            <div class="forgot">
+                                <p><a href="Request.php?class=UsuarioCtr&method=showView">Ainda não tem cadastro? Clique aqui!</a></p>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<br/>
+<div class="container cadastro-combos">
+    <h1 class="text-center">Cadastro de Combos</h1>
+    <hr>
+    <form method="post" action="Request.php?class=ComboCtr&method=run">
+        <div class="form-row" >      
+            <input class="form-control" type="hidden" name="id" id="id" 
+                   value="<?= $this->model->getId() ?>">
+        </div>
+        <div class="form-row" >       
+            <div class="form-group col-md-6">
+                <label for="precoTotal">Preço Total</label>
+                <input type="text" class="form-control"  name="precoTotal" id="precoTotal"  value="<?= $this->model->getPrecoTotal() ?>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="idUsuario">Usuário:</label>
+                <select name="idUsuario" id="idUsuario" class="custom-select">
+                    <option disabled selected>Carregando usuários...</option>
+                    <!--<?php
+                    if ($this->usuarios) {
+                        foreach ($this->usuarios as $usuario) {
+                            ?>
+                            <option value="<?= $usuario->getId() ?>"
+                                    <?= $usuario->getId() == $this->model->getUsuario()->getId() ? "selected" : '' ?>>
+                                <?= $usuario->getNome() ?></option>
+                            <?php
+                        }
+                    }
+                    ?> -->
+                </select>
+            </div>
+        </div>    
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="idBebida">Bebida:</label>
+                <select name="idBebida" id="idBebida" class="custom-select">
+                    <option disabled selected>Carregando bebidas...</option>
+                    <!--<?php
+                    if ($this->bebidas) {
+                        foreach ($this->bebidas as $bebida) {
+                            ?>
+                            <option value="<?= $bebida->getId() ?>"
+                                    <?= $bebida->getId() == $this->model->getBebida()->getId() ? "selected" : '' ?>>
+                                <?= $bebida->getDescricaoBebida() ?></option>
+                            <?php
+                        }
+                    }
+                    ?>-->
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                 <label for="idDoce">Doce:</label>
+                <select name="idDoce" id="idDoce" class="custom-select">
+                    <option disabled selected>Carregando doces...</option>
+                    <!-- <?php
+                    if ($this->doces) {
+                        foreach ($this->doces as $doce) {
+                            ?>
+                            <option value="<?= $doce->getId() ?>"
+                                    <?= $doce->getId() == $this->model->getDoce()->getId() ? "selected" : '' ?>>
+                                <?= $doce->getDescricaoDoce() ?></option>
+                            <?php
+                        }
+                    }
+                    ?>-->
+                </select>            
+            </div>
+            <div class="form-group col-md-4">
+                <label for="idComidaSalgada">Comida Salgada:</label>
+                <select name="idComidaSalgada" id="idComidaSalgada" class="custom-select">
+                    <option disabled selected>Carregando comidas...</option>
+                    <!-- <?php
+                    if ($this->comidasalgadas) {
+                        foreach ($this->comidasalgadas as $comidasalgada) {
+                            ?>
+                            <option value="<?= $comidasalgada->getId() ?>"
+                                    <?= $comidasalgada->getId() == $this->model->getComidaSalgada()->getId() ? "selected" : '' ?>>
+                                <?= $comidasalgada->getDescricaoComida() ?></option>
+                            <?php
+                        }
+                    }
+                    ?>-->
+                </select>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">                   
+
+                    <button  class="btn btn-primary" type="submit" name="command" value="Salvar">
+                        Salvar
+                    </button>
+
+                    <button class="btn btn-danger" type="submit" name="command" value="Excluir">
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+<br/>
+<div class="container cadastro-usuario">
+    <h1 class="text-center">Cadastro de Usuários</h1>
+    <hr>
+    <form method="post" id="cadastroUsuario" action="Request.php?class=UsuarioCtr&method=run">
+        <div class="form-row" >      
+            <input class="form-control" type="hidden" name="id" id="id" 
+                   value="<?= $this->model->getId() ?>">
+        </div>
+        <div class="form-row" >       
+            <div class="form-group col-md-6">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control"  name="email" id="email"   value="<?= $this->model->getEmail() ?>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4"  required name="senha">
+            </div>
+        </div>    
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="inputNome" name="nome"  value="<?= $this->model->getNome() ?>">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="inputCpf" name="cpf"  value="<?= $this->model->getCpf() ?>">               
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputTelefone">Telefone</label>
+                <input type="text" class="form-control" id="inputTelefone" name="telefone" value="<?= $this->model->getTelefone() ?>">
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <button  class="btn btn-primary" id="commandSalvar" type="submit" name="command" value="Salvar">
+                        Salvar
+                    </button>
+
+                    <button class="btn btn-danger" type="submit" name="command" value="Excluir">
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>  
+</div>

@@ -1,0 +1,66 @@
+<br/>
+<div class="container">
+    <h1 class="text-center">Consulta de Combos</h1>
+    <hr>
+    <form method="post" action="Request.php?class=ComboCtr&method=showList&page=1">
+        <div class="form-row" > 
+            <div class="form-group col-md-6">
+                <label for="data[0]">Preço Total:</label>
+                <input class="form-control" type="text" name="data[0]" value="<?= $this->sqlData[0] ?>">
+            </div>    
+            <div class="form-group col-md-6">
+                <label for="page">Página:</label>
+                <select name="limit" id="limit" class="custom-select">
+                    <option <?= $this->regPerPage == 5 ? "selected" : '' ?> 
+                        value="5">5</option>
+
+                    <option <?= $this->regPerPage == 10 ? "selected" : '' ?> 
+                        value="10">10</option>
+                    <option <?= $this->regPerPage == 20 ? "selected" : '' ?> 
+                        value="20">20</option>
+                </select>   
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">  
+                    <button  class="btn btn-primary" type="submit" name="command" value="OK">
+                        Ok
+                    </button>                       
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<hr><hr>
+
+<!--
+
+<h2>Cadastro de Combos</h2>
+<hr>
+<form method="post" action="Request.php?class=ComboCtr&method=showList&page=1">
+
+    <label for="data[0]">Preço Total</label>
+    <input type="text" name="data[0]"  id="precoTotal" value="<?= $this->sqlData[0] ?>">
+    <br>
+    <select name="limit" id="limit">
+        <option <?= $this->regPerPage == 5 ? "selected" : '' ?> 
+            value="5">5</option>
+
+        <option <?= $this->regPerPage == 10 ? "selected" : '' ?> 
+            value="10">10</option>
+        <option <?= $this->regPerPage == 20 ? "selected" : '' ?> 
+            value="20">20</option>
+    </select>    
+
+    <input type="submit" name="command" value="OK">
+
+</form>
+
+-->
+
+<?php
+$this->createList(
+        $this->model, array('precoTotal', 'Usuario', 'Bebida', 'Doce', 'ComidaSalgada'), array('getPrecoTotal', 'getUsuarioAsString', 'getBebidaAsString', 'getDoceAsString', 'getComidaSalgadaAsString'), 'ComboCtr'
+);
+?>
